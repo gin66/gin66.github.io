@@ -648,7 +648,18 @@
             <span class="code_comment">
               <br/>
             </span>
-            <span class="code_comment">Here we arbitrarily choose the smoothstep function with its first derivative:</span>
+            <span class="code_comment">tanh(x) poses problem for the x-range. The smoothstep function starts at x=0 too slow. As we are controlling the speed,</span>
+            <span class="code_comment">
+              <br/>
+            </span>
+            <span class="code_comment">we already get one factor of x. So idea is to have a function coming out linearly from x with a maximum at x=1.</span>
+            <span class="code_comment">
+              <br/>
+            </span>
+            <span class="code_comment">
+              <br/>
+            </span>
+            <span class="code_comment">This time sine function with its first derivative to be used:</span>
             <span class="code_comment">
               <br/>
             </span>
@@ -662,15 +673,14 @@
             <span class="code_operator">)</span>
             <span class="code_operator">:</span>
             <span class="code_operator">=</span>
-            <span class="code_number">3</span>
-            <span class="code_operator">·</span>
+            <span class="code_function">sin</span>
+            <span class="code_operator">(</span>
             <span class="code_variable">x</span>
-            <span class="code_number">²</span>
-            <span class="code_operator">−</span>
+            <span class="code_operator">·</span>
+            <span class="code_variable">%pi</span>
+            <span class="code_operator">/</span>
             <span class="code_number">2</span>
-            <span class="code_operator">·</span>
-            <span class="code_variable">x</span>
-            <span class="code_number">³</span>
+            <span class="code_operator">)</span>
             <span class="code_endofline">;</span>
             <span class="code_endofline">
               <br/>
@@ -689,9 +699,9 @@
         </td>
       </tr>
     </table>
-    <p>\[\operatorname{	}\operatorname{f}(x)\operatorname{:=}3 {{x}^{2}}-2 {{x}^{3}}\]
+    <p>\[\operatorname{	}\operatorname{f}(x)\operatorname{:=}\sin{\left( \frac{x \ensuremath{\pi} }{2}\right) }\]
 </p>
-    <p>\[\operatorname{	}6 x-6 {{x}^{2}}\]
+    <p>\[\operatorname{	}\frac{\ensuremath{\pi}  \cos{\left( \frac{\ensuremath{\pi}  x}{2}\right) }}{2}\]
 </p>
     <!-- Code cell -->
     <table>
@@ -720,21 +730,24 @@
             <span class="code_operator">)</span>
             <span class="code_operator">:</span>
             <span class="code_operator">=</span>
-            <span class="code_number">6</span>
+            <span class="code_variable">%pi</span>
+            <span class="code_operator">·</span>
+            <span class="code_function">cos</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">%pi</span>
             <span class="code_operator">·</span>
             <span class="code_variable">x</span>
-            <span class="code_operator">−</span>
-            <span class="code_number">6</span>
-            <span class="code_operator">·</span>
-            <span class="code_variable">x</span>
-            <span class="code_operator">^</span>
+            <span class="code_operator">/</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">/</span>
             <span class="code_number">2</span>
             <span class="code_endofline">;</span>
           </span>
         </td>
       </tr>
     </table>
-    <p>\[\operatorname{	}\operatorname{f\_ 1}(x)\operatorname{:=}6 x-6 {{x}^{2}}\]
+    <p>\[\operatorname{	}\operatorname{f\_ 1}(x)\operatorname{:=}\frac{\ensuremath{\pi}  \cos{\left( \frac{\ensuremath{\pi}  x}{2}\right) }}{2}\]
 </p>
     <!-- Code cell -->
     <table>
@@ -862,7 +875,7 @@
         </td>
       </tr>
     </table>
-    <p>\[\operatorname{	}\frac{18 {{s}^{3}} {{{v_{\ensuremath{\mathrm{max}}}}}^{2}}}{{{{s_{\ensuremath{\mathrm{ramp}}}}}^{4}}}-\frac{30 {{s}^{4}} {{{v_{\ensuremath{\mathrm{max}}}}}^{2}}}{{{{s_{\ensuremath{\mathrm{ramp}}}}}^{5}}}+\frac{12 {{s}^{5}} {{{v_{\ensuremath{\mathrm{max}}}}}^{2}}}{{{{s_{\ensuremath{\mathrm{ramp}}}}}^{6}}}\]
+    <p>\[\operatorname{	}\frac{\ensuremath{\pi}  \cos{\left( \frac{\ensuremath{\pi}  s}{2 {s_{\ensuremath{\mathrm{ramp}}}}}\right) } \sin{\left( \frac{\ensuremath{\pi}  s}{2 {s_{\ensuremath{\mathrm{ramp}}}}}\right) } {{{v_{\ensuremath{\mathrm{max}}}}}^{2}}}{2 {s_{\ensuremath{\mathrm{ramp}}}}}\]
 </p>
     <!-- Code cell -->
     <table>
@@ -931,7 +944,7 @@
             <span class="code_comment">
               <br/>
             </span>
-            <span class="code_comment">The maximum of this function is c at x_c  (evaluated with wolframalpha)</span>
+            <span class="code_comment">The maximum of this function is c at x_c</span>
             <span class="code_comment">
               <br/>
             </span>
@@ -939,53 +952,40 @@
             <span class="code_endofline">
               <br/>
             </span>
-            <span class="code_variable">c</span>
-            <span class="code_operator">:</span>
-            <span class="code_number">3</span>
-            <span class="code_operator">/</span>
-            <span class="code_number">250</span>
-            <span class="code_operator">·</span>
-            <span class="code_operator">(</span>
-            <span class="code_number">34</span>
-            <span class="code_operator">·</span>
-            <span class="code_function">sqrt</span>
-            <span class="code_operator">(</span>
-            <span class="code_number">10</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">−</span>
-            <span class="code_number">25</span>
-            <span class="code_operator">)</span>
-            <span class="code_endofline">;</span>
-            <span class="code_endofline">
-              <br/>
-            </span>
             <span class="code_variable">x_c</span>
             <span class="code_operator">:</span>
-            <span class="code_number">1</span>
-            <span class="code_operator">−</span>
-            <span class="code_number">1</span>
-            <span class="code_operator">/</span>
-            <span class="code_function">sqrt</span>
-            <span class="code_operator">(</span>
-            <span class="code_number">10</span>
-            <span class="code_operator">)</span>
+            <span class="code_number">0</span>
+            <span class="code_endofline">.</span>
+            <span class="code_number">5</span>
             <span class="code_endofline">;</span>
             <span class="code_endofline">
               <br/>
             </span>
+            <span class="code_variable">c</span>
+            <span class="code_operator">:</span>
+            <span class="code_function">f</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x_c</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">·</span>
+            <span class="code_function">f_1</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x_c</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
           </span>
         </td>
       </tr>
     </table>
-    <p>\[\operatorname{	}\frac{3 \left( 34 \sqrt{10}-25\right) }{250}\]
+    <p>\[\operatorname{	}0.5\]
 </p>
-    <p>\[\operatorname{	}1-\frac{1}{\sqrt{10}}\]
+    <p>\[\operatorname{	}\frac{\ensuremath{\pi}  \cos{\left( 0.25 \ensuremath{\pi} \right) } \sin{\left( 0.25 \ensuremath{\pi} \right) }}{2}\]
 </p>
     <!-- Code cell -->
     <table>
       <tr>
         <td>
-          <span class="prompt">(%i24)	
+          <span class="prompt">(%i25)	
   </span>
         </td>
         <td>
@@ -994,7 +994,7 @@
             <span class="code_comment">
               <br/>
             </span>
-            <span class="code_comment">The maximum value of the function is nearly one, so we just ignore it</span>
+            <span class="code_comment">The maximum value of the function is pi/4</span>
             <span class="code_comment">
               <br/>
             </span>
@@ -1007,17 +1007,26 @@
             <span class="code_variable">c</span>
             <span class="code_operator">)</span>
             <span class="code_endofline">;</span>
+            <span class="code_function">float</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">%pi</span>
+            <span class="code_operator">/</span>
+            <span class="code_number">4</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
           </span>
         </td>
       </tr>
     </table>
-    <p>\[\operatorname{	}0.9902092853486988\]
+    <p>\[\operatorname{	}0.7853981633974482\]
+</p>
+    <p>\[\operatorname{	}0.7853981633974483\]
 </p>
     <!-- Code cell -->
     <table>
       <tr>
         <td>
-          <span class="prompt">(%i25)	
+          <span class="prompt">(%i26)	
   </span>
         </td>
         <td>
@@ -1040,6 +1049,10 @@
             <span class="code_number">²</span>
             <span class="code_operator">/</span>
             <span class="code_variable">s_ramp</span>
+            <span class="code_operator">·</span>
+            <span class="code_variable">%pi</span>
+            <span class="code_operator">/</span>
+            <span class="code_number">4</span>
             <span class="code_endofline">;</span>
             <span class="code_endofline">
               <br/>
@@ -1048,13 +1061,13 @@
         </td>
       </tr>
     </table>
-    <p>\[\operatorname{	}{a_{\ensuremath{\mathrm{max}}}}=\frac{{{{v_{\ensuremath{\mathrm{max}}}}}^{2}}}{{s_{\ensuremath{\mathrm{ramp}}}}}\]
+    <p>\[\operatorname{	}{a_{\ensuremath{\mathrm{max}}}}=\frac{\ensuremath{\pi}  {{{v_{\ensuremath{\mathrm{max}}}}}^{2}}}{4 {s_{\ensuremath{\mathrm{ramp}}}}}\]
 </p>
     <!-- Code cell -->
     <table>
       <tr>
         <td>
-          <span class="prompt">(%i26)	
+          <span class="prompt">(%i27)	
   </span>
         </td>
         <td>
@@ -1075,6 +1088,10 @@
             <span class="code_operator">:</span>
             <span class="code_variable">s_ramp</span>
             <span class="code_operator">=</span>
+            <span class="code_variable">%pi</span>
+            <span class="code_operator">/</span>
+            <span class="code_number">4</span>
+            <span class="code_operator">·</span>
             <span class="code_variable">v_max</span>
             <span class="code_number">²</span>
             <span class="code_operator">/</span>
@@ -1084,13 +1101,13 @@
         </td>
       </tr>
     </table>
-    <p>\[\operatorname{	}{s_{\ensuremath{\mathrm{ramp}}}}=\frac{{{{v_{\ensuremath{\mathrm{max}}}}}^{2}}}{{a_{\ensuremath{\mathrm{max}}}}}\]
+    <p>\[\operatorname{	}{s_{\ensuremath{\mathrm{ramp}}}}=\frac{\ensuremath{\pi}  {{{v_{\ensuremath{\mathrm{max}}}}}^{2}}}{4 {a_{\ensuremath{\mathrm{max}}}}}\]
 </p>
     <!-- Code cell -->
     <table>
       <tr>
         <td>
-          <span class="prompt"> --&gt;	
+          <span class="prompt">(%i28)	
   </span>
         </td>
         <td>
@@ -1099,30 +1116,7 @@
             <span class="code_comment">
               <br/>
             </span>
-            <span class="code_comment">This is double the value of using constant acceleration.</span>
-            <span class="code_comment">
-              <br/>
-            </span>
-            <span class="code_comment">*/</span>
-            <span class="code_endofline">;</span>
-          </span>
-        </td>
-      </tr>
-    </table>
-    <!-- Code cell -->
-    <table>
-      <tr>
-        <td>
-          <span class="prompt">(%i27)	
-  </span>
-        </td>
-        <td>
-          <span class="input">
-            <span class="code_comment">/*</span>
-            <span class="code_comment">
-              <br/>
-            </span>
-            <span class="code_comment">The speed at steps s = 1 is:</span>
+            <span class="code_comment">The speed at step s = 1 is:</span>
             <span class="code_comment">
               <br/>
             </span>
@@ -1140,13 +1134,84 @@
             <span class="code_variable">s</span>
             <span class="code_operator">=</span>
             <span class="code_number">1</span>
+            <span class="code_endofline">,</span>
+            <span class="code_variable">ref</span>
             <span class="code_operator">)</span>
             <span class="code_endofline">;</span>
           </span>
         </td>
       </tr>
     </table>
-    <p>\[\operatorname{	}\left( \frac{3}{{{{s_{\ensuremath{\mathrm{ramp}}}}}^{2}}}-\frac{2}{{{{s_{\ensuremath{\mathrm{ramp}}}}}^{3}}}\right)  {v_{\ensuremath{\mathrm{max}}}}\]
+    <p>\[\operatorname{	}\sin{\left( \frac{2 {a_{\ensuremath{\mathrm{max}}}}}{{{{v_{\ensuremath{\mathrm{max}}}}}^{2}}}\right) } {v_{\ensuremath{\mathrm{max}}}}\]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i29)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_comment">/*</span>
+            <span class="code_comment">
+              <br/>
+            </span>
+            <span class="code_comment">As sin(x) ~ x for x &lt;&lt; 1 the speed at step s=1 is:</span>
+            <span class="code_comment">
+              <br/>
+            </span>
+            <span class="code_comment">*/</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_number">2</span>
+            <span class="code_operator">·</span>
+            <span class="code_variable">a_max</span>
+            <span class="code_operator">/</span>
+            <span class="code_variable">v_max</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\frac{2 {a_{\ensuremath{\mathrm{max}}}}}{{v_{\ensuremath{\mathrm{max}}}}}\]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i30)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_comment">/*</span>
+            <span class="code_comment">
+              <br/>
+            </span>
+            <span class="code_comment">For reference: with constant acceleration the speed at step s=1 is independent of v_max</span>
+            <span class="code_comment">
+              <br/>
+            </span>
+            <span class="code_comment">*/</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_variable">v</span>
+            <span class="code_operator">=</span>
+            <span class="code_function">sqrt</span>
+            <span class="code_operator">(</span>
+            <span class="code_number">2</span>
+            <span class="code_operator">·</span>
+            <span class="code_variable">a</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}v=\sqrt{2} \sqrt{a}\]
 </p>
     <hr/>
     <p>
