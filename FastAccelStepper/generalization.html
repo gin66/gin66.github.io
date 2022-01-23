@@ -313,7 +313,7 @@
     <table>
       <tr>
         <td>
-          <span class="prompt">(%i7)	
+          <span class="prompt">(%i8)	
   </span>
         </td>
         <td>
@@ -327,6 +327,11 @@
               <br/>
             </span>
             <span class="code_comment">*/</span>
+            <span class="code_function">float</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">c</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
             <span class="code_endofline">
               <br/>
             </span>
@@ -372,11 +377,13 @@
         </td>
       </tr>
     </table>
+    <p>\[\operatorname{	}c\]
+</p>
     <!-- Code cell -->
     <table>
       <tr>
         <td>
-          <span class="prompt">(%i8)	
+          <span class="prompt">(%i9)	
   </span>
         </td>
         <td>
@@ -423,7 +430,7 @@
     </table>
     <p>\[\operatorname{	}\]
 </p>
-    <img src="generalization_htmlimg/generalization_6.png" width="1198" style="max-width:90%;" loading="lazy" alt=" (Graphics) "/>
+    <img src="generalization_htmlimg/generalization_7.png" width="1198" style="max-width:90%;" loading="lazy" alt=" (Graphics) "/>
     <br/>
     <p>\[\operatorname{	}\]
 </p>
@@ -431,7 +438,7 @@
     <table>
       <tr>
         <td>
-          <span class="prompt">(%i9)	
+          <span class="prompt">(%i10)	
   </span>
         </td>
         <td>
@@ -466,7 +473,7 @@
     </table>
     <p>\[\operatorname{	}\]
 </p>
-    <img src="generalization_htmlimg/generalization_9.png" width="1198" style="max-width:90%;" loading="lazy" alt=" (Graphics) "/>
+    <img src="generalization_htmlimg/generalization_10.png" width="1198" style="max-width:90%;" loading="lazy" alt=" (Graphics) "/>
     <br/>
     <p>\[\operatorname{	}\]
 </p>
@@ -474,7 +481,7 @@
     <table>
       <tr>
         <td>
-          <span class="prompt">(%i10)	
+          <span class="prompt">(%i11)	
   </span>
         </td>
         <td>
@@ -516,7 +523,51 @@
     <table>
       <tr>
         <td>
-          <span class="prompt">(%i11)	
+          <span class="prompt">(%i12)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_comment">/*</span>
+            <span class="code_comment">
+              <br/>
+            </span>
+            <span class="code_comment">The first derivate of v aka v_1 is with df/fx = f_1:</span>
+            <span class="code_comment">
+              <br/>
+            </span>
+            <span class="code_comment">*/</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_function">v_1</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">s</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">:</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">v_max</span>
+            <span class="code_operator">/</span>
+            <span class="code_variable">s_ramp</span>
+            <span class="code_operator">·</span>
+            <span class="code_function">f_1</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">s</span>
+            <span class="code_operator">/</span>
+            <span class="code_variable">s_ramp</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\operatorname{v\_ 1}(s)\operatorname{:=}\frac{{v_{\ensuremath{\mathrm{max}}}}}{{s_{\ensuremath{\mathrm{ramp}}}}} {f_1}\left( \frac{s}{{s_{\ensuremath{\mathrm{ramp}}}}}\right) \]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i13)	
   </span>
         </td>
         <td>
@@ -539,33 +590,21 @@
             <span class="code_operator">)</span>
             <span class="code_operator">:</span>
             <span class="code_operator">=</span>
-            <span class="code_operator">(</span>
-            <span class="code_function">v</span>
-            <span class="code_operator">(</span>
-            <span class="code_variable">s</span>
-            <span class="code_operator">+</span>
-            <span class="code_variable">Δs</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">−</span>
-            <span class="code_function">v</span>
+            <span class="code_function">v_1</span>
             <span class="code_operator">(</span>
             <span class="code_variable">s</span>
-            <span class="code_operator">−</span>
-            <span class="code_variable">Δs</span>
             <span class="code_operator">)</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">/</span>
-            <span class="code_operator">(</span>
-            <span class="code_number">2</span>
             <span class="code_operator">·</span>
-            <span class="code_variable">Δt</span>
+            <span class="code_function">v</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">s</span>
             <span class="code_operator">)</span>
             <span class="code_endofline">;</span>
           </span>
         </td>
       </tr>
     </table>
-    <p>\[\operatorname{	}\operatorname{a}(s)\operatorname{:=}\frac{\operatorname{v}\left( s+\ensuremath{\mathrm{\Delta s}}\right) -\operatorname{v}\left( s-\ensuremath{\mathrm{\Delta s}}\right) }{2 \ensuremath{\mathrm{\Delta t}}}\]
+    <p>\[\operatorname{	}\operatorname{a}(s)\operatorname{:=}\operatorname{v\_ 1}(s) \operatorname{v}(s)\]
 </p>
     <!-- Code cell -->
     <table>
@@ -576,290 +615,22 @@
         </td>
         <td>
           <span class="input">
-            <span class="code_comment">/*</span>
-            <span class="code_comment">
-              <br/>
-            </span>
-            <span class="code_comment">derived in a couple of steps. Hereby f_1(x) shall be the derivative of f(x)</span>
-            <span class="code_comment">
-              <br/>
-            </span>
-            <span class="code_comment">*/</span>
-            <span class="code_endofline">
-              <br/>
-            </span>
             <span class="code_function">a</span>
             <span class="code_operator">(</span>
             <span class="code_variable">s</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">:</span>
-            <span class="code_operator">=</span>
-            <span class="code_operator">(</span>
-            <span class="code_variable">v_max</span>
-            <span class="code_operator">·</span>
-            <span class="code_function">f</span>
-            <span class="code_operator">(</span>
-            <span class="code_operator">(</span>
-            <span class="code_variable">s</span>
-            <span class="code_operator">+</span>
-            <span class="code_variable">Δs</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">/</span>
-            <span class="code_variable">s_max</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">−</span>
-            <span class="code_variable">v_max</span>
-            <span class="code_operator">·</span>
-            <span class="code_function">f</span>
-            <span class="code_operator">(</span>
-            <span class="code_operator">(</span>
-            <span class="code_variable">s</span>
-            <span class="code_operator">−</span>
-            <span class="code_variable">Δs</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">/</span>
-            <span class="code_variable">s_max</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">/</span>
-            <span class="code_operator">(</span>
-            <span class="code_number">2</span>
-            <span class="code_operator">·</span>
-            <span class="code_variable">Δt</span>
-            <span class="code_operator">)</span>
-            <span class="code_endofline">;</span>
-            <span class="code_endofline">
-              <br/>
-            </span>
-            <span class="code_function">a</span>
-            <span class="code_operator">(</span>
-            <span class="code_variable">s</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">:</span>
-            <span class="code_operator">=</span>
-            <span class="code_variable">v_max</span>
-            <span class="code_operator">·</span>
-            <span class="code_operator">(</span>
-            <span class="code_function">f</span>
-            <span class="code_operator">(</span>
-            <span class="code_operator">(</span>
-            <span class="code_variable">s</span>
-            <span class="code_operator">+</span>
-            <span class="code_variable">Δs</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">/</span>
-            <span class="code_variable">s_max</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">−</span>
-            <span class="code_function">f</span>
-            <span class="code_operator">(</span>
-            <span class="code_operator">(</span>
-            <span class="code_variable">s</span>
-            <span class="code_operator">−</span>
-            <span class="code_variable">Δs</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">/</span>
-            <span class="code_variable">s_max</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">/</span>
-            <span class="code_operator">(</span>
-            <span class="code_number">2</span>
-            <span class="code_operator">·</span>
-            <span class="code_variable">Δt</span>
-            <span class="code_operator">)</span>
-            <span class="code_endofline">;</span>
-            <span class="code_endofline">
-              <br/>
-            </span>
-            <span class="code_function">a</span>
-            <span class="code_operator">(</span>
-            <span class="code_variable">s</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">:</span>
-            <span class="code_operator">=</span>
-            <span class="code_variable">v_max</span>
-            <span class="code_operator">·</span>
-            <span class="code_operator">(</span>
-            <span class="code_number">2</span>
-            <span class="code_operator">·</span>
-            <span class="code_function">f</span>
-            <span class="code_operator">(</span>
-            <span class="code_variable">s</span>
-            <span class="code_operator">/</span>
-            <span class="code_variable">s_max</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">·</span>
-            <span class="code_function">df</span>
-            <span class="code_operator">(</span>
-            <span class="code_variable">s</span>
-            <span class="code_operator">/</span>
-            <span class="code_variable">s_max</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">/</span>
-            <span class="code_variable">ds</span>
-            <span class="code_operator">·</span>
-            <span class="code_variable">s_max</span>
-            <span class="code_operator">·</span>
-            <span class="code_variable">Δs</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">/</span>
-            <span class="code_operator">(</span>
-            <span class="code_number">2</span>
-            <span class="code_operator">·</span>
-            <span class="code_variable">Δt</span>
             <span class="code_operator">)</span>
             <span class="code_endofline">;</span>
           </span>
         </td>
       </tr>
     </table>
-    <p>\[\operatorname{	}\operatorname{a}(s)\operatorname{:=}\frac{{v_{\ensuremath{\mathrm{max}}}} \operatorname{f}\left( \frac{s+\ensuremath{\mathrm{\Delta s}}}{{s_{\ensuremath{\mathrm{max}}}}}\right) -{v_{\ensuremath{\mathrm{max}}}} \operatorname{f}\left( \frac{s-\ensuremath{\mathrm{\Delta s}}}{{s_{\ensuremath{\mathrm{max}}}}}\right) }{2 \ensuremath{\mathrm{\Delta t}}}\]
-</p>
-    <p>\[\operatorname{	}\operatorname{a}(s)\operatorname{:=}\frac{{v_{\ensuremath{\mathrm{max}}}} \left( \operatorname{f}\left( \frac{s+\ensuremath{\mathrm{\Delta s}}}{{s_{\ensuremath{\mathrm{max}}}}}\right) -\operatorname{f}\left( \frac{s-\ensuremath{\mathrm{\Delta s}}}{{s_{\ensuremath{\mathrm{max}}}}}\right) \right) }{2 \ensuremath{\mathrm{\Delta t}}}\]
-</p>
-    <p>\[\operatorname{	}\operatorname{a}(s)\operatorname{:=}\frac{{v_{\ensuremath{\mathrm{max}}}} \left( \frac{2 \operatorname{f}\left( \frac{s}{{s_{\ensuremath{\mathrm{max}}}}}\right)  \operatorname{df}\left( \frac{s}{{s_{\ensuremath{\mathrm{max}}}}}\right) }{\ensuremath{\mathrm{ds}}} {s_{\ensuremath{\mathrm{max}}}} \ensuremath{\mathrm{\Delta s}}\right) }{2 \ensuremath{\mathrm{\Delta t}}}\]
+    <p>\[\operatorname{	}\frac{\operatorname{f}\left( \frac{s}{{s_{\ensuremath{\mathrm{ramp}}}}}\right)  {f_1}\left( \frac{s}{{s_{\ensuremath{\mathrm{ramp}}}}}\right)  {{{v_{\ensuremath{\mathrm{max}}}}}^{2}}}{{s_{\ensuremath{\mathrm{ramp}}}}}\]
 </p>
     <!-- Code cell -->
     <table>
       <tr>
         <td>
-          <span class="prompt">(%i15)	
-  </span>
-        </td>
-        <td>
-          <span class="input">
-            <span class="code_comment">/**</span>
-            <span class="code_comment">
-              <br/>
-            </span>
-            <span class="code_comment">Δs can be calulated out of  Δt using the speed:</span>
-            <span class="code_comment">
-              <br/>
-            </span>
-            <span class="code_comment">*/</span>
-            <span class="code_endofline">
-              <br/>
-            </span>
-            <span class="code_variable">Δs</span>
-            <span class="code_operator">=</span>
-            <span class="code_variable">v</span>
-            <span class="code_operator">·</span>
-            <span class="code_variable">Δt</span>
-            <span class="code_endofline">;</span>
-          </span>
-        </td>
-      </tr>
-    </table>
-    <p>\[\operatorname{	}\ensuremath{\mathrm{\Delta s}}=v\, \ensuremath{\mathrm{\Delta t}}\]
-</p>
-    <!-- Code cell -->
-    <table>
-      <tr>
-        <td>
-          <span class="prompt">(%i17)	
-  </span>
-        </td>
-        <td>
-          <span class="input">
-            <span class="code_comment">/*</span>
-            <span class="code_comment">
-              <br/>
-            </span>
-            <span class="code_comment">derived in a couple of steps. Hereby f_1(x) shall be the derivative of f(x)</span>
-            <span class="code_comment">
-              <br/>
-            </span>
-            <span class="code_comment">*/</span>
-            <span class="code_endofline">
-              <br/>
-            </span>
-            <span class="code_function">a</span>
-            <span class="code_operator">(</span>
-            <span class="code_variable">s</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">:</span>
-            <span class="code_operator">=</span>
-            <span class="code_variable">v_max</span>
-            <span class="code_operator">·</span>
-            <span class="code_operator">(</span>
-            <span class="code_function">f</span>
-            <span class="code_operator">(</span>
-            <span class="code_variable">s</span>
-            <span class="code_operator">/</span>
-            <span class="code_variable">s_max</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">·</span>
-            <span class="code_function">df</span>
-            <span class="code_operator">(</span>
-            <span class="code_variable">s</span>
-            <span class="code_operator">/</span>
-            <span class="code_variable">s_max</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">/</span>
-            <span class="code_variable">ds</span>
-            <span class="code_operator">·</span>
-            <span class="code_variable">s_max</span>
-            <span class="code_operator">·</span>
-            <span class="code_function">v</span>
-            <span class="code_operator">(</span>
-            <span class="code_variable">s</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">·</span>
-            <span class="code_variable">Δt</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">/</span>
-            <span class="code_variable">Δt</span>
-            <span class="code_endofline">;</span>
-            <span class="code_endofline">
-              <br/>
-            </span>
-            <span class="code_function">a</span>
-            <span class="code_operator">(</span>
-            <span class="code_variable">s</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">:</span>
-            <span class="code_operator">=</span>
-            <span class="code_variable">v_max</span>
-            <span class="code_operator">·</span>
-            <span class="code_function">f</span>
-            <span class="code_operator">(</span>
-            <span class="code_variable">s</span>
-            <span class="code_operator">/</span>
-            <span class="code_variable">s_max</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">·</span>
-            <span class="code_function">f_1</span>
-            <span class="code_operator">(</span>
-            <span class="code_variable">s</span>
-            <span class="code_operator">/</span>
-            <span class="code_variable">s_max</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">·</span>
-            <span class="code_variable">v_max</span>
-            <span class="code_operator">·</span>
-            <span class="code_function">f</span>
-            <span class="code_operator">(</span>
-            <span class="code_variable">s</span>
-            <span class="code_operator">/</span>
-            <span class="code_variable">s_max</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">/</span>
-            <span class="code_variable">s_max</span>
-            <span class="code_endofline">;</span>
-          </span>
-        </td>
-      </tr>
-    </table>
-    <p>\[\operatorname{	}\operatorname{a}(s)\operatorname{:=}\frac{{v_{\ensuremath{\mathrm{max}}}} \left( \frac{\operatorname{f}\left( \frac{s}{{s_{\ensuremath{\mathrm{max}}}}}\right)  \operatorname{df}\left( \frac{s}{{s_{\ensuremath{\mathrm{max}}}}}\right) }{\ensuremath{\mathrm{ds}}} {s_{\ensuremath{\mathrm{max}}}} \operatorname{v}(s) \ensuremath{\mathrm{\Delta t}}\right) }{\ensuremath{\mathrm{\Delta t}}}\]
-</p>
-    <p>\[\operatorname{	}\operatorname{a}(s)\operatorname{:=}\frac{{v_{\ensuremath{\mathrm{max}}}} \operatorname{f}\left( \frac{s}{{s_{\ensuremath{\mathrm{max}}}}}\right)  {f_1}\left( \frac{s}{{s_{\ensuremath{\mathrm{max}}}}}\right)  {v_{\ensuremath{\mathrm{max}}}} \operatorname{f}\left( \frac{s}{{s_{\ensuremath{\mathrm{max}}}}}\right) }{{s_{\ensuremath{\mathrm{max}}}}}\]
-</p>
-    <!-- Code cell -->
-    <table>
-      <tr>
-        <td>
-          <span class="prompt">(%i19)	
+          <span class="prompt">(%i16)	
   </span>
         </td>
         <td>
@@ -872,7 +643,7 @@
             <span class="code_comment">
               <br/>
             </span>
-            <span class="code_comment">Here we have chosen tanh() with its first derivative:</span>
+            <span class="code_comment">Here we have the smoothstep function with its first derivative:</span>
             <span class="code_comment">
               <br/>
             </span>
@@ -880,25 +651,28 @@
             <span class="code_endofline">
               <br/>
             </span>
-            <span class="code_function">g</span>
+            <span class="code_function">f</span>
             <span class="code_operator">(</span>
             <span class="code_variable">x</span>
             <span class="code_operator">)</span>
             <span class="code_operator">:</span>
             <span class="code_operator">=</span>
-            <span class="code_function">tanh</span>
-            <span class="code_operator">(</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">·</span>
             <span class="code_variable">x</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">/</span>
+            <span class="code_number">²</span>
+            <span class="code_operator">−</span>
             <span class="code_number">2</span>
+            <span class="code_operator">·</span>
+            <span class="code_variable">x</span>
+            <span class="code_number">³</span>
             <span class="code_endofline">;</span>
             <span class="code_endofline">
               <br/>
             </span>
             <span class="code_function">diff</span>
             <span class="code_operator">(</span>
-            <span class="code_function">g</span>
+            <span class="code_function">f</span>
             <span class="code_operator">(</span>
             <span class="code_variable">x</span>
             <span class="code_operator">)</span>
@@ -910,15 +684,15 @@
         </td>
       </tr>
     </table>
-    <p>\[\operatorname{	}\operatorname{g}(x)\operatorname{:=}\frac{\operatorname{tanh}(x)}{2}\]
+    <p>\[\operatorname{	}\operatorname{f}(x)\operatorname{:=}3 {{x}^{2}}-2 {{x}^{3}}\]
 </p>
-    <p>\[\operatorname{	}\frac{{{\operatorname{sech}(x)}^{2}}}{2}\]
+    <p>\[\operatorname{	}6 x-6 {{x}^{2}}\]
 </p>
     <!-- Code cell -->
     <table>
       <tr>
         <td>
-          <span class="prompt">(%i20)	
+          <span class="prompt">(%i17)	
   </span>
         </td>
         <td>
@@ -935,26 +709,120 @@
             <span class="code_endofline">
               <br/>
             </span>
-            <span class="code_function">g_1</span>
+            <span class="code_function">f_1</span>
             <span class="code_operator">(</span>
             <span class="code_variable">x</span>
             <span class="code_operator">)</span>
             <span class="code_operator">:</span>
             <span class="code_operator">=</span>
-            <span class="code_function">sech</span>
-            <span class="code_operator">(</span>
+            <span class="code_number">6</span>
+            <span class="code_operator">·</span>
             <span class="code_variable">x</span>
-            <span class="code_operator">)</span>
+            <span class="code_operator">−</span>
+            <span class="code_number">6</span>
+            <span class="code_operator">·</span>
+            <span class="code_variable">x</span>
             <span class="code_operator">^</span>
-            <span class="code_number">2</span>
-            <span class="code_operator">/</span>
             <span class="code_number">2</span>
             <span class="code_endofline">;</span>
           </span>
         </td>
       </tr>
     </table>
-    <p>\[\operatorname{	}\operatorname{g\_ 1}(x)\operatorname{:=}\frac{{{\operatorname{sech}(x)}^{2}}}{2}\]
+    <p>\[\operatorname{	}\operatorname{f\_ 1}(x)\operatorname{:=}6 x-6 {{x}^{2}}\]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i18)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_comment">/*</span>
+            <span class="code_comment">
+              <br/>
+            </span>
+            <span class="code_comment">Drawn over the x-range from 0 to 1:</span>
+            <span class="code_comment">
+              <br/>
+            </span>
+            <span class="code_comment">*/</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_function">wxplot2d</span>
+            <span class="code_operator">(</span>
+            <span class="code_operator">[</span>
+            <span class="code_function">f</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">,</span>
+            <span class="code_function">f_1</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">x</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">]</span>
+            <span class="code_endofline">,</span>
+            <span class="code_operator">[</span>
+            <span class="code_variable">x</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">0</span>
+            <span class="code_endofline">,</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">]</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\]
+</p>
+    <img src="generalization_htmlimg/generalization_20.png" width="1198" style="max-width:90%;" loading="lazy" alt=" (Graphics) "/>
+    <br/>
+    <p>\[\operatorname{	}\]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i20)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_comment">/*</span>
+            <span class="code_comment">
+              <br/>
+            </span>
+            <span class="code_comment">How does this apply to our functions v and a as dependent from step s ?</span>
+            <span class="code_comment">
+              <br/>
+            </span>
+            <span class="code_comment">*/</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_function">fundef</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">v</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+            <span class="code_function">fundef</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">a</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\operatorname{v}(s)\operatorname{:=}{v_{\ensuremath{\mathrm{max}}}} \operatorname{f}\left( \frac{s}{{s_{\ensuremath{\mathrm{ramp}}}}}\right) \]
+</p>
+    <p>\[\operatorname{	}\operatorname{a}(s)\operatorname{:=}\operatorname{v\_ 1}(s) \operatorname{v}(s)\]
 </p>
     <!-- Code cell -->
     <table>
@@ -969,7 +837,42 @@
             <span class="code_comment">
               <br/>
             </span>
-            <span class="code_comment">Drawn over the x-range from -10 to 10:</span>
+            <span class="code_comment">With this the function to calculate the acceleration is (with constant factors eliminated):</span>
+            <span class="code_comment">
+              <br/>
+            </span>
+            <span class="code_comment">*/</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_function">expand</span>
+            <span class="code_operator">(</span>
+            <span class="code_function">a</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">s</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\frac{18 {{s}^{3}} {{{v_{\ensuremath{\mathrm{max}}}}}^{2}}}{{{{s_{\ensuremath{\mathrm{ramp}}}}}^{4}}}-\frac{30 {{s}^{4}} {{{v_{\ensuremath{\mathrm{max}}}}}^{2}}}{{{{s_{\ensuremath{\mathrm{ramp}}}}}^{5}}}+\frac{12 {{s}^{5}} {{{v_{\ensuremath{\mathrm{max}}}}}^{2}}}{{{{s_{\ensuremath{\mathrm{ramp}}}}}^{6}}}\]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i22)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_comment">/*</span>
+            <span class="code_comment">
+              <br/>
+            </span>
+            <span class="code_comment">The shape of a(s) is:     </span>
             <span class="code_comment">
               <br/>
             </span>
@@ -980,12 +883,12 @@
             <span class="code_function">wxplot2d</span>
             <span class="code_operator">(</span>
             <span class="code_operator">[</span>
-            <span class="code_function">g</span>
+            <span class="code_function">f</span>
             <span class="code_operator">(</span>
             <span class="code_variable">x</span>
             <span class="code_operator">)</span>
-            <span class="code_endofline">,</span>
-            <span class="code_function">g_1</span>
+            <span class="code_operator">·</span>
+            <span class="code_function">f_1</span>
             <span class="code_operator">(</span>
             <span class="code_variable">x</span>
             <span class="code_operator">)</span>
@@ -994,10 +897,9 @@
             <span class="code_operator">[</span>
             <span class="code_variable">x</span>
             <span class="code_endofline">,</span>
-            <span class="code_operator">−</span>
-            <span class="code_number">10</span>
+            <span class="code_number">0</span>
             <span class="code_endofline">,</span>
-            <span class="code_number">10</span>
+            <span class="code_number">1</span>
             <span class="code_operator">]</span>
             <span class="code_operator">)</span>
             <span class="code_endofline">;</span>
@@ -1007,7 +909,7 @@
     </table>
     <p>\[\operatorname{	}\]
 </p>
-    <img src="generalization_htmlimg/generalization_23.png" width="1198" style="max-width:90%;" loading="lazy" alt=" (Graphics) "/>
+    <img src="generalization_htmlimg/generalization_26.png" width="1198" style="max-width:90%;" loading="lazy" alt=" (Graphics) "/>
     <br/>
     <p>\[\operatorname{	}\]
 </p>
@@ -1024,11 +926,7 @@
             <span class="code_comment">
               <br/>
             </span>
-            <span class="code_comment">Using this function the complete ramp with acceleration and deceleration can be written.</span>
-            <span class="code_comment">
-              <br/>
-            </span>
-            <span class="code_comment">With total ramp distance of 40 * s_ramp between maximum acceleration/deceleration points:</span>
+            <span class="code_comment">The maximum of this function is c at x_c  (evaluated with wolframalpha)</span>
             <span class="code_comment">
               <br/>
             </span>
@@ -1036,85 +934,116 @@
             <span class="code_endofline">
               <br/>
             </span>
-            <span class="code_function">f</span>
-            <span class="code_operator">(</span>
-            <span class="code_variable">x</span>
-            <span class="code_operator">)</span>
+            <span class="code_variable">c</span>
             <span class="code_operator">:</span>
-            <span class="code_operator">=</span>
-            <span class="code_function">g</span>
+            <span class="code_number">3</span>
+            <span class="code_operator">/</span>
+            <span class="code_number">250</span>
+            <span class="code_operator">·</span>
             <span class="code_operator">(</span>
-            <span class="code_variable">x</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">+</span>
-            <span class="code_function">g</span>
+            <span class="code_number">34</span>
+            <span class="code_operator">·</span>
+            <span class="code_function">sqrt</span>
             <span class="code_operator">(</span>
-            <span class="code_number">40</span>
-            <span class="code_operator">−</span>
-            <span class="code_variable">x</span>
-            <span class="code_operator">)</span>
-            <span class="code_endofline">;</span>
-            <span class="code_endofline">
-              <br/>
-            </span>
-            <span class="code_function">f_1</span>
-            <span class="code_operator">(</span>
-            <span class="code_variable">x</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">:</span>
-            <span class="code_operator">=</span>
-            <span class="code_function">g_1</span>
-            <span class="code_operator">(</span>
-            <span class="code_variable">x</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">−</span>
-            <span class="code_function">g_1</span>
-            <span class="code_operator">(</span>
-            <span class="code_number">40</span>
-            <span class="code_operator">−</span>
-            <span class="code_variable">x</span>
-            <span class="code_operator">)</span>
-            <span class="code_endofline">;</span>
-            <span class="code_endofline">
-              <br/>
-            </span>
-            <span class="code_function">wxplot2d</span>
-            <span class="code_operator">(</span>
-            <span class="code_operator">[</span>
-            <span class="code_function">f</span>
-            <span class="code_operator">(</span>
-            <span class="code_variable">x</span>
-            <span class="code_operator">)</span>
-            <span class="code_endofline">,</span>
-            <span class="code_function">f_1</span>
-            <span class="code_operator">(</span>
-            <span class="code_variable">x</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">]</span>
-            <span class="code_endofline">,</span>
-            <span class="code_operator">[</span>
-            <span class="code_variable">x</span>
-            <span class="code_endofline">,</span>
-            <span class="code_operator">−</span>
             <span class="code_number">10</span>
-            <span class="code_endofline">,</span>
-            <span class="code_number">50</span>
-            <span class="code_operator">]</span>
+            <span class="code_operator">)</span>
+            <span class="code_operator">−</span>
+            <span class="code_number">25</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_variable">x_c</span>
+            <span class="code_operator">:</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">−</span>
+            <span class="code_number">1</span>
+            <span class="code_operator">/</span>
+            <span class="code_function">sqrt</span>
+            <span class="code_operator">(</span>
+            <span class="code_number">10</span>
+            <span class="code_operator">)</span>
+            <span class="code_endofline">;</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}\frac{3 \left( 34 \sqrt{10}-25\right) }{250}\]
+</p>
+    <p>\[\operatorname{	}1-\frac{1}{\sqrt{10}}\]
+</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i25)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_comment">/*</span>
+            <span class="code_comment">
+              <br/>
+            </span>
+            <span class="code_comment">The maximum value of the function is nearly one, so we just ignore it</span>
+            <span class="code_comment">
+              <br/>
+            </span>
+            <span class="code_comment">*/</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_function">float</span>
+            <span class="code_operator">(</span>
+            <span class="code_variable">c</span>
             <span class="code_operator">)</span>
             <span class="code_endofline">;</span>
           </span>
         </td>
       </tr>
     </table>
-    <p>\[\operatorname{	}\operatorname{f}(x)\operatorname{:=}\operatorname{g}(x)+\operatorname{g}\left( 40-x\right) \]
+    <p>\[\operatorname{	}0.9902092853486988\]
 </p>
-    <p>\[\operatorname{	}\operatorname{f\_ 1}(x)\operatorname{:=}\operatorname{g\_ 1}(x)-\operatorname{g\_ 1}\left( 40-x\right) \]
-</p>
-    <p>\[\operatorname{	}\]
-</p>
-    <img src="generalization_htmlimg/generalization_28.png" width="1198" style="max-width:90%;" loading="lazy" alt=" (Graphics) "/>
-    <br/>
-    <p>\[\operatorname{	}\]
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt">(%i26)	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_comment">/*</span>
+            <span class="code_comment">
+              <br/>
+            </span>
+            <span class="code_comment">Consequently the maximum acceleration is:</span>
+            <span class="code_comment">
+              <br/>
+            </span>
+            <span class="code_comment">*/</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+            <span class="code_variable">a_max</span>
+            <span class="code_operator">=</span>
+            <span class="code_variable">v_max</span>
+            <span class="code_number">²</span>
+            <span class="code_operator">/</span>
+            <span class="code_variable">s_ramp</span>
+            <span class="code_endofline">;</span>
+            <span class="code_endofline">
+              <br/>
+            </span>
+          </span>
+        </td>
+      </tr>
+    </table>
+    <p>\[\operatorname{	}{a_{\ensuremath{\mathrm{max}}}}=\frac{{{{v_{\ensuremath{\mathrm{max}}}}}^{2}}}{{s_{\ensuremath{\mathrm{ramp}}}}}\]
 </p>
     <!-- Code cell -->
     <table>
@@ -1129,11 +1058,7 @@
             <span class="code_comment">
               <br/>
             </span>
-            <span class="code_comment">As we cannot start with negative steps, the acceleration ramp needs to move towards positive x. The value to choose still to be determined.</span>
-            <span class="code_comment">
-              <br/>
-            </span>
-            <span class="code_comment">The then practical x_total has been chosen as parameter in the figure with a value of 40</span>
+            <span class="code_comment">In FastAccelStepper maximum acceleration and maximum speed are configured, so this equation can be used to determine s_ramp.</span>
             <span class="code_comment">
               <br/>
             </span>
@@ -1141,110 +1066,44 @@
             <span class="code_endofline">
               <br/>
             </span>
-            <span class="code_function">f</span>
-            <span class="code_operator">(</span>
-            <span class="code_variable">x</span>
-            <span class="code_endofline">,</span>
-            <span class="code_variable">x_shift</span>
-            <span class="code_endofline">,</span>
-            <span class="code_variable">x_total</span>
-            <span class="code_operator">)</span>
+            <span class="code_variable">ref</span>
             <span class="code_operator">:</span>
+            <span class="code_variable">s_ramp</span>
             <span class="code_operator">=</span>
-            <span class="code_function">g</span>
-            <span class="code_operator">(</span>
-            <span class="code_variable">x</span>
-            <span class="code_operator">−</span>
-            <span class="code_variable">x_shift</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">+</span>
-            <span class="code_function">g</span>
-            <span class="code_operator">(</span>
-            <span class="code_variable">x_total</span>
-            <span class="code_operator">−</span>
-            <span class="code_variable">x</span>
-            <span class="code_operator">−</span>
-            <span class="code_variable">x_shift</span>
-            <span class="code_operator">)</span>
-            <span class="code_endofline">;</span>
-            <span class="code_endofline">
-              <br/>
-            </span>
-            <span class="code_function">f_1</span>
-            <span class="code_operator">(</span>
-            <span class="code_variable">x</span>
-            <span class="code_endofline">,</span>
-            <span class="code_variable">x_shift</span>
-            <span class="code_endofline">,</span>
-            <span class="code_variable">x_total</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">:</span>
-            <span class="code_operator">=</span>
-            <span class="code_function">g_1</span>
-            <span class="code_operator">(</span>
-            <span class="code_variable">x</span>
-            <span class="code_operator">−</span>
-            <span class="code_variable">x_shift</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">−</span>
-            <span class="code_function">g_1</span>
-            <span class="code_operator">(</span>
-            <span class="code_variable">x_total</span>
-            <span class="code_operator">−</span>
-            <span class="code_variable">x</span>
-            <span class="code_operator">−</span>
-            <span class="code_variable">x_shift</span>
-            <span class="code_operator">)</span>
-            <span class="code_endofline">;</span>
-            <span class="code_endofline">
-              <br/>
-            </span>
-            <span class="code_function">wxplot2d</span>
-            <span class="code_operator">(</span>
-            <span class="code_operator">[</span>
-            <span class="code_function">f</span>
-            <span class="code_operator">(</span>
-            <span class="code_variable">x</span>
-            <span class="code_endofline">,</span>
-            <span class="code_number">5</span>
-            <span class="code_endofline">,</span>
-            <span class="code_number">40</span>
-            <span class="code_operator">)</span>
-            <span class="code_endofline">,</span>
-            <span class="code_function">f_1</span>
-            <span class="code_operator">(</span>
-            <span class="code_variable">x</span>
-            <span class="code_endofline">,</span>
-            <span class="code_number">5</span>
-            <span class="code_endofline">,</span>
-            <span class="code_number">40</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">]</span>
-            <span class="code_endofline">,</span>
-            <span class="code_operator">[</span>
-            <span class="code_variable">x</span>
-            <span class="code_endofline">,</span>
-            <span class="code_operator">−</span>
-            <span class="code_number">10</span>
-            <span class="code_endofline">,</span>
-            <span class="code_number">50</span>
-            <span class="code_operator">]</span>
-            <span class="code_operator">)</span>
+            <span class="code_variable">v_max</span>
+            <span class="code_number">²</span>
+            <span class="code_operator">/</span>
+            <span class="code_variable">a_max</span>
             <span class="code_endofline">;</span>
           </span>
         </td>
       </tr>
     </table>
-    <p>\[\operatorname{	}\operatorname{f}\left( x\operatorname{,}{x_{\ensuremath{\mathrm{shift}}}}\operatorname{,}{x_{\ensuremath{\mathrm{total}}}}\right) \operatorname{:=}\operatorname{g}\left( x-{x_{\ensuremath{\mathrm{shift}}}}\right) +\operatorname{g}\left( {x_{\ensuremath{\mathrm{total}}}}-x-{x_{\ensuremath{\mathrm{shift}}}}\right) \]
+    <p>\[\operatorname{	}{s_{\ensuremath{\mathrm{ramp}}}}=\frac{{{{v_{\ensuremath{\mathrm{max}}}}}^{2}}}{{a_{\ensuremath{\mathrm{max}}}}}\]
 </p>
-    <p>\[\operatorname{	}\operatorname{f\_ 1}\left( x\operatorname{,}{x_{\ensuremath{\mathrm{shift}}}}\operatorname{,}{x_{\ensuremath{\mathrm{total}}}}\right) \operatorname{:=}\operatorname{g\_ 1}\left( x-{x_{\ensuremath{\mathrm{shift}}}}\right) -\operatorname{g\_ 1}\left( {x_{\ensuremath{\mathrm{total}}}}-x-{x_{\ensuremath{\mathrm{shift}}}}\right) \]
-</p>
-    <p>\[\operatorname{	}\]
-</p>
-    <img src="generalization_htmlimg/generalization_33.png" width="1198" style="max-width:90%;" loading="lazy" alt=" (Graphics) "/>
-    <br/>
-    <p>\[\operatorname{	}\]
-</p>
+    <!-- Code cell -->
+    <table>
+      <tr>
+        <td>
+          <span class="prompt"> --&gt;	
+  </span>
+        </td>
+        <td>
+          <span class="input">
+            <span class="code_comment">/*</span>
+            <span class="code_comment">
+              <br/>
+            </span>
+            <span class="code_comment">This is double the value of using constant acceleration.</span>
+            <span class="code_comment">
+              <br/>
+            </span>
+            <span class="code_comment">*/</span>
+            <span class="code_endofline">;</span>
+          </span>
+        </td>
+      </tr>
+    </table>
     <!-- Code cell -->
     <table>
       <tr>
@@ -1258,7 +1117,7 @@
             <span class="code_comment">
               <br/>
             </span>
-            <span class="code_comment">As soon as acceleration and deceleration are overlapping, the maximum value of 1 aka max speed is not reached anymore</span>
+            <span class="code_comment">The speed at steps s = 1 is:</span>
             <span class="code_comment">
               <br/>
             </span>
@@ -1266,56 +1125,23 @@
             <span class="code_endofline">
               <br/>
             </span>
-            <span class="code_function">wxplot2d</span>
+            <span class="code_function">ev</span>
             <span class="code_operator">(</span>
-            <span class="code_operator">[</span>
-            <span class="code_function">f</span>
+            <span class="code_function">v</span>
             <span class="code_operator">(</span>
-            <span class="code_variable">x</span>
-            <span class="code_endofline">,</span>
-            <span class="code_number">5</span>
-            <span class="code_endofline">,</span>
-            <span class="code_number">11</span>
+            <span class="code_variable">s</span>
             <span class="code_operator">)</span>
             <span class="code_endofline">,</span>
-            <span class="code_function">f_1</span>
-            <span class="code_operator">(</span>
-            <span class="code_variable">x</span>
-            <span class="code_endofline">,</span>
-            <span class="code_number">5</span>
-            <span class="code_endofline">,</span>
-            <span class="code_number">11</span>
-            <span class="code_operator">)</span>
-            <span class="code_operator">]</span>
-            <span class="code_endofline">,</span>
-            <span class="code_operator">[</span>
-            <span class="code_variable">x</span>
-            <span class="code_endofline">,</span>
-            <span class="code_operator">−</span>
-            <span class="code_number">10</span>
-            <span class="code_endofline">,</span>
-            <span class="code_number">50</span>
-            <span class="code_operator">]</span>
-            <span class="code_endofline">,</span>
-            <span class="code_operator">[</span>
-            <span class="code_variable">y</span>
-            <span class="code_endofline">,</span>
-            <span class="code_operator">−</span>
+            <span class="code_variable">s</span>
+            <span class="code_operator">=</span>
             <span class="code_number">1</span>
-            <span class="code_endofline">,</span>
-            <span class="code_number">1</span>
-            <span class="code_operator">]</span>
             <span class="code_operator">)</span>
             <span class="code_endofline">;</span>
           </span>
         </td>
       </tr>
     </table>
-    <p>\[\operatorname{	}\]
-</p>
-    <img src="generalization_htmlimg/generalization_36.png" width="1198" style="max-width:90%;" loading="lazy" alt=" (Graphics) "/>
-    <br/>
-    <p>\[\operatorname{	}\]
+    <p>\[\operatorname{	}\left( \frac{3}{{{{s_{\ensuremath{\mathrm{ramp}}}}}^{2}}}-\frac{2}{{{{s_{\ensuremath{\mathrm{ramp}}}}}^{3}}}\right)  {v_{\ensuremath{\mathrm{max}}}}\]
 </p>
     <hr/>
     <p>
